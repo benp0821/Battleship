@@ -7,17 +7,17 @@ import javax.swing.JPanel;
 
 public class GameLogic {
 	
-	private final static int BOARD_SIZE = 5;
+	private final static int BOARD_SIZE = 10;
 	
-	private final static int BATTLESHIP_SIZE = 3;
-	private final static int CRUISER_SIZE = 2;
+	private final static int BATTLESHIP_SIZE = 4;
+	private final static int CRUISER_SIZE = 3;
 	private final static int DESTROYER_SIZE = 2;
 	private final static int SUBMARINE_SIZE = 1;
 	
 	private final static int BATTLESHIP_COUNT = 1;
-	private final static int CRUISER_COUNT = 1;
-	private final static int DESTROYER_COUNT = 2;
-	private final static int SUBMARINE_COUNT = 3;
+	private final static int CRUISER_COUNT = 2;
+	private final static int DESTROYER_COUNT = 3;
+	private final static int SUBMARINE_COUNT = 4;
 	private JFrame frame;
 	private boolean gameRunning;
 	
