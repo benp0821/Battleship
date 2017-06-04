@@ -12,12 +12,10 @@ import javax.swing.JPanel;
 public class GameOverScreen implements MouseListener{
 	
 	private JPanel window;
-	private JFrame frame;
 	private ImageIcon backgroundImageIcon;
 	private JLabel bkgImageContainer;
 	
 	public GameOverScreen(JFrame app, boolean playerOneWin){
-		frame = app;
 		window = (JPanel)app.getContentPane();
 		if (playerOneWin){
 			backgroundImageIcon = new ImageIcon("P1Win.png");
@@ -46,8 +44,7 @@ public class GameOverScreen implements MouseListener{
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		frame.dispose();
-		new GameLogic().setUpWindow();
+		System.exit(0);
 	}
 
 	@Override

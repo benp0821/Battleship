@@ -7,17 +7,17 @@ import javax.swing.JPanel;
 
 public class GameLogic {
 	
-	private final static int BOARD_SIZE = 10;
+	public static int boardSize = 10;
 	
-	private final static int BATTLESHIP_SIZE = 4;
-	private final static int CRUISER_SIZE = 3;
-	private final static int DESTROYER_SIZE = 2;
-	private final static int SUBMARINE_SIZE = 1;
+	public static int battleshipSize = 4;
+	public static int cruiserSize = 3;
+	public static int destroyerSize = 2;
+	public static int submarineSize = 1;
 	
-	private final static int BATTLESHIP_COUNT = 1;
-	private final static int CRUISER_COUNT = 2;
-	private final static int DESTROYER_COUNT = 3;
-	private final static int SUBMARINE_COUNT = 4;
+	public static int battleshipCount = 1;
+	public static int cruiserCount = 2;
+	public static int destroyerCount = 3;
+	public static int submarineCount = 4;
 	private JFrame frame;
 	private boolean gameRunning;
 	
@@ -64,10 +64,10 @@ public class GameLogic {
 	}
 	
 	private Ship[] initializeShipCreation(boolean isPlayerOne) {
-		Ship[] battleships = createShips(BATTLESHIP_SIZE, BATTLESHIP_COUNT, isPlayerOne);
-		Ship[] cruisers = createShips(CRUISER_SIZE, CRUISER_COUNT, isPlayerOne);
-		Ship[] destroyers = createShips(DESTROYER_SIZE, DESTROYER_COUNT, isPlayerOne);
-		Ship[] submarines = createShips(SUBMARINE_SIZE, SUBMARINE_COUNT, isPlayerOne);
+		Ship[] battleships = createShips(battleshipSize, battleshipCount, isPlayerOne);
+		Ship[] cruisers = createShips(cruiserSize, cruiserCount, isPlayerOne);
+		Ship[] destroyers = createShips(destroyerSize, destroyerCount, isPlayerOne);
+		Ship[] submarines = createShips(submarineSize, submarineCount, isPlayerOne);
 
 		Ship[] ships = concatShipArray(battleships, cruisers);
 		ships = concatShipArray(ships, destroyers);
@@ -100,7 +100,7 @@ public class GameLogic {
 	}
 	
 	private Object[][] chooseShipPositions(Ship[] ships){
-		GridCreator creator = new GridCreator(ships, BOARD_SIZE, frame);
+		GridCreator creator = new GridCreator(ships, boardSize, frame);
 		creator.setup();
 		frame.getContentPane().add(creator);
 		frame.getContentPane().repaint();

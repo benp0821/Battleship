@@ -74,8 +74,16 @@ public class GridCreator extends JPanel {
 	 * Does all the work to setup the grid.
 	 */
 	public void setup() {
+		int largestShipSize = 0;
+		for (int i = 0; i < shipArray.length; i++){
+			int temp = shipArray[i].getShipPieces().length;
+			if (temp > largestShipSize){
+				largestShipSize = temp;
+			}
+		}
+		
 		int windowWidth = X_ORIGIN + ((TILE_SIZE + BORDER_SIZE) * gridArray.length) + (2 * BORDER_SIZE) + 50
-				+ ((shipArray[0].getShipPieces().length + 1) * TILE_SIZE);
+				+ ((largestShipSize + 1) * TILE_SIZE);
 		int windowHeight = Y_ORIGIN + ((TILE_SIZE + BORDER_SIZE) * (gridArray.length + 1));
 		if (windowHeight < 2 * TILE_SIZE + (shipArray.length * (TILE_SIZE + BORDER_SIZE + 2))) {
 			windowHeight = 2 * TILE_SIZE + (shipArray.length * (TILE_SIZE + BORDER_SIZE + 2));
@@ -107,7 +115,7 @@ public class GridCreator extends JPanel {
 				}
 				for (int i = 0; i < panelArray.length; i++) {
 					int timeout = 0;
-					while (timeout < 8
+					while (timeout < 500
 							&& shipArray[i].getStartingOffGridPosition().equals(panelArray[i].getLocation())) {
 						int x = rand.nextInt(gridArray.length);
 						int y = rand.nextInt(gridArray.length);
@@ -216,18 +224,6 @@ public class GridCreator extends JPanel {
 						// if right button released
 					} else if (e.getButton() == MouseEvent.BUTTON3) {
 						rightClick(shipNum, counter1, counter2);
-					}
-
-					System.out.println();
-					for (int i = 0; i < gridArray.length; i++) {
-						for (int j = 0; j < gridArray[i].length; j++) {
-							if (gridArray[j][i].getClass().getName().equals("ShipPiece")) {
-								System.out.print("1 ");
-							} else {
-								System.out.print("0 ");
-							}
-						}
-						System.out.println();
 					}
 
 					endSetup.repaint();
